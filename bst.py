@@ -16,4 +16,6 @@ class BinarySearchTree:
       if node.key <= self.key and self.left == None: 
          self.left = node
          node.parent = self
+      elif node.key >= self.key: 
+         self.right = node
          return
