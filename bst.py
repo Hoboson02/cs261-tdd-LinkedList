@@ -34,12 +34,14 @@ class BinarySearchTree:
    def search(self, value):
       if value == self.key:
          return self 
-      else: 
-         return None
+      if self.key > value and self.left != None: 
+         return self.left.search(value)
+      if self.key < value and self.right != None: 
+         return self.right.search(value)
+      
+      return None
 
    def delete(self, value): 
       if self.key == value: 
          return None
       return self 
-
-  
