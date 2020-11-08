@@ -7,4 +7,10 @@
 
 class BinarySearchTree:
    def __init__(self): 
+      self.left = None
+      self.right = None
+      self.key = None
+      self.parent = None
       return None
+
+   
