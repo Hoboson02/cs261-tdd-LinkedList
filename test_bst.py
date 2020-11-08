@@ -1,5 +1,5 @@
 # DO NOT MODIFY THIS FILE
-# Run me via: python3 -m unittest test_bst
+# Run me via: python -m unittest test_bst
 
 import unittest
 import time
