@@ -25,3 +25,8 @@ class BinarySearchTree:
          return self 
       else: 
          return None
+
+   def delete(self, value): 
+      if self.key == value: 
+         return None
+      return self 
