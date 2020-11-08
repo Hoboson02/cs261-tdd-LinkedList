@@ -13,12 +13,23 @@ class BinarySearchTree:
       self.parent = None
 
    def insert(self, node):
-      if node.key <= self.key and self.left == None: 
-         self.left = node
-         node.parent = self
-      elif node.key >= self.key: 
-         self.right = node
-         return
+      if node.key <= self.key: 
+         # self.left = node
+         # node.parent = self
+         if self.left == None:
+            self.left = node
+            node.parent = self
+         else: 
+            self.left.insert(node)
+      if node.key > self.key: 
+         if self.right == None:
+            self.right = node
+            node.parent = self 
+         else: 
+            self.right.insert(node)
+      # elif node.key >= self.key: 
+      #    self.right = node
+      #    return
 
    def search(self, value):
       if value == self.key:
@@ -30,3 +41,5 @@ class BinarySearchTree:
       if self.key == value: 
          return None
       return self 
+
+  
