@@ -19,3 +19,6 @@ class BinarySearchTree:
       elif node.key >= self.key: 
          self.right = node
          return
+
+   def search(self, key): 
+      return None
