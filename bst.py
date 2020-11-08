@@ -20,5 +20,8 @@ class BinarySearchTree:
          self.right = node
          return
 
-   def search(self, key): 
-      return None
+   def search(self, value):
+      if value == self.key:
+         return self 
+      else: 
+         return None
