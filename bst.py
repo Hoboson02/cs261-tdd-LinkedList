@@ -36,7 +36,7 @@ class BinarySearchTree:
          return self 
       if self.key > value and self.left != None: 
          return self.left.search(value)
-      if self.key < value and self.right != None: 
+      elif self.right != None: 
          return self.right.search(value)
       
       return None
