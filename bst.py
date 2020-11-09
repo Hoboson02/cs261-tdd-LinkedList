@@ -44,5 +44,8 @@ class BinarySearchTree:
    def delete(self, value): 
       if self.key == value: 
          return None
+      if self.left != None and self.left.key == value: 
+         self.left = None
+         return self
       return self 
 
