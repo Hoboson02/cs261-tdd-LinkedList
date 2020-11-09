@@ -47,5 +47,8 @@ class BinarySearchTree:
       if self.left != None and self.left.key == value: 
          self.left = None
          return self
+      if self.right != None and self.right.key == value: 
+         self.right = None
+         return self
       return self 
 
