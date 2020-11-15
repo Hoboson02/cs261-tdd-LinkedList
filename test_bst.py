@@ -364,217 +364,217 @@ class TestBinarySearchTree(unittest.TestCase):
     # Hint: Don't just curse - be recursive.
     # """
 
-    # def test_insert_three_smaller_leftmost_leaf(self):
-    #     """
-    #     Inserting a node with a key that is less than the leftmost leaf node's
-    #     key appends the new node as the leftmost leaf's left child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                      /
-    #                     1
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     node_5 = BinarySearchTree(5)
-    #     bst.insert(node_5)
-    #     node_15 = BinarySearchTree(15)
-    #     bst.insert(node_15)
-    #     node_2 = BinarySearchTree(2)
-    #     bst.insert(node_2)
-    #     node_7 = BinarySearchTree(7)
-    #     bst.insert(node_7)
-    #     node_12 = BinarySearchTree(12)
-    #     bst.insert(node_12)
-    #     node_17 = BinarySearchTree(17)
-    #     bst.insert(node_17)
-    #     child = BinarySearchTree(1)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.left.left)
-    #     self.assertEqual(bst.left.left, child.parent)
+    def test_insert_three_smaller_leftmost_leaf(self):
+        """
+        Inserting a node with a key that is less than the leftmost leaf node's
+        key appends the new node as the leftmost leaf's left child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                         /
+                        1
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
+        bst = BinarySearchTree(10)
+        node_5 = BinarySearchTree(5)
+        bst.insert(node_5)
+        node_15 = BinarySearchTree(15)
+        bst.insert(node_15)
+        node_2 = BinarySearchTree(2)
+        bst.insert(node_2)
+        node_7 = BinarySearchTree(7)
+        bst.insert(node_7)
+        node_12 = BinarySearchTree(12)
+        bst.insert(node_12)
+        node_17 = BinarySearchTree(17)
+        bst.insert(node_17)
+        child = BinarySearchTree(1)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.left.left)
+        self.assertEqual(bst.left.left, child.parent)
 
 
-    # def test_insert_three_larger_leftmost_leaf(self):
-    #     """
-    #     Inserting a node with a key that is greater than the leftmost leaf node's
-    #     key (but less than it's parents') appends the new node as the leftmost
-    #     leaf's right child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                        \
-    #                         3
-    #     """
-    #     bst = three_level_tree() # Same tree as pictured above to the left.
-    #     child = BinarySearchTree(3)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.left.right)
-    #     self.assertEqual(bst.left.left, child.parent)
+    def test_insert_three_larger_leftmost_leaf(self):
+        """
+        Inserting a node with a key that is greater than the leftmost leaf node's
+        key (but less than it's parents') appends the new node as the leftmost
+        leaf's right child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                           \
+                            3
+        """
+        bst = three_level_tree() # Same tree as pictured above to the left.
+        child = BinarySearchTree(3)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.left.right)
+        self.assertEqual(bst.left.left, child.parent)
 
-    # def test_insert_three_smaller_left_right_leaf(self):
-    #     """
-    #     Inserting a node with a key that is less than the 'inner left' leaf node's
-    #     key (but greater than it's parent and less than the root) appends the new
-    #     node as the 'inner left' leaf's left child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                          /
-    #                         6
-    #     """
-    #     bst = three_level_tree()
-    #     child = BinarySearchTree(6)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.right.left)
-    #     self.assertEqual(bst.left.right, child.parent)
+    def test_insert_three_smaller_left_right_leaf(self):
+        """
+        Inserting a node with a key that is less than the 'inner left' leaf node's
+        key (but greater than it's parent and less than the root) appends the new
+        node as the 'inner left' leaf's left child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                             /
+                            6
+        """
+        bst = three_level_tree()
+        child = BinarySearchTree(6)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.right.left)
+        self.assertEqual(bst.left.right, child.parent)
 
-    # def test_insert_three_larger_left_right_leaf(self):
-    #     """
-    #     Inserting a node with a key that is greater than the 'inner left' leaf node's
-    #     key (but less than the root) appends the new node as the 'inner left' leaf's
-    #     right child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                            \
-    #                             8
-    #     """
-    #     bst = three_level_tree()
-    #     child = BinarySearchTree(8)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.right.right)
-    #     self.assertEqual(bst.left.right, child.parent)
+    def test_insert_three_larger_left_right_leaf(self):
+        """
+        Inserting a node with a key that is greater than the 'inner left' leaf node's
+        key (but less than the root) appends the new node as the 'inner left' leaf's
+        right child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                               \
+                                8
+        """
+        bst = three_level_tree()
+        child = BinarySearchTree(8)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.right.right)
+        self.assertEqual(bst.left.right, child.parent)
 
-    # def test_insert_three_smaller_right_left_leaf(self):
-    #     """
-    #     Inserting a node with a key that is less than the 'inner right' leaf node's
-    #     key (and less than it's parent, but greater than the root) appends the
-    #     new node as the 'inner right' leaf's left child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                             /
-    #                            11
-    #     """
-    #     bst = three_level_tree()
-    #     child = BinarySearchTree(11)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.right.left.left)
-    #     self.assertEqual(bst.right.left, child.parent)
+    def test_insert_three_smaller_right_left_leaf(self):
+        """
+        Inserting a node with a key that is less than the 'inner right' leaf node's
+        key (and less than it's parent, but greater than the root) appends the
+        new node as the 'inner right' leaf's left child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                                /
+                               11
+        """
+        bst = three_level_tree()
+        child = BinarySearchTree(11)
+        bst.insert(child)
+        self.assertEqual(child, bst.right.left.left)
+        self.assertEqual(bst.right.left, child.parent)
 
-    # def test_insert_three_larger_right_left_leaf(self):
-    #     """
-    #     Inserting a node with a key that is greater than the 'inner right' leaf
-    #     node's key (but less than it's parent) appends the new node as the
-    #     'inner right' leaf's right child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                                \
-    #                                13
-    #     """
-    #     bst = three_level_tree()
-    #     child = BinarySearchTree(13)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.right.left.right)
-    #     self.assertEqual(bst.right.left, child.parent)
+    def test_insert_three_larger_right_left_leaf(self):
+        """
+        Inserting a node with a key that is greater than the 'inner right' leaf
+        node's key (but less than it's parent) appends the new node as the
+        'inner right' leaf's right child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                                   \
+                                   13
+        """
+        bst = three_level_tree()
+        child = BinarySearchTree(13)
+        bst.insert(child)
+        self.assertEqual(child, bst.right.left.right)
+        self.assertEqual(bst.right.left, child.parent)
 
-    # def test_insert_three_smaller_right_right_leaf(self):
-    #     """
-    #     Inserting a node with a key that is less than the rightmost leaf node's
-    #     key (but greater than it's parent) appends the new node as the rightmost
-    #     leaf's left child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                                  /
-    #                                16
-    #     """
-    #     bst = three_level_tree()
-    #     child = BinarySearchTree(16)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.right.right.left)
-    #     self.assertEqual(bst.right.right, child.parent)
+    def test_insert_three_smaller_right_right_leaf(self):
+        """
+        Inserting a node with a key that is less than the rightmost leaf node's
+        key (but greater than it's parent) appends the new node as the rightmost
+        leaf's left child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                                     /
+                                   16
+        """
+        bst = three_level_tree()
+        child = BinarySearchTree(16)
+        bst.insert(child)
+        self.assertEqual(child, bst.right.right.left)
+        self.assertEqual(bst.right.right, child.parent)
 
-    # def test_insert_three_greater_right_right_leaf(self):
-    #     """
-    #     Inserting a node with a key that is less than the rightmost leaf node's
-    #     key (but greater than it's parent) appends the new node as the rightmost
-    #     leaf's left child.
-    #          10                10
-    #        /    \            /    \
-    #       5      15    =>   5      15
-    #      / \    /  \       / \    /  \
-    #     2   7  12   17    2   7  12   17
-    #                                    \
-    #                                     19
-    #     """
-    #     bst = three_level_tree()
-    #     child = BinarySearchTree(19)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.right.right.right)
+    def test_insert_three_greater_right_right_leaf(self):
+        """
+        Inserting a node with a key that is less than the rightmost leaf node's
+        key (but greater than it's parent) appends the new node as the rightmost
+        leaf's left child.
+             10                10
+           /    \            /    \
+          5      15    =>   5      15
+         / \    /  \       / \    /  \
+        2   7  12   17    2   7  12   17
+                                       \
+                                        19
+        """
+        bst = three_level_tree()
+        child = BinarySearchTree(19)
+        bst.insert(child)
+        self.assertEqual(child, bst.right.right.right)
 
-    # def test_search_three_not_found(self):
-    #     """
-    #     Searching for a non-existent key in a three-level tree returns None.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertIsNone(bst.search(-999))
+    def test_search_three_not_found(self):
+        """
+        Searching for a non-existent key in a three-level tree returns None.
+        """
+        bst = three_level_tree()
+        self.assertIsNone(bst.search(-999))
 
-    # def test_search_three_root(self):
-    #     """
-    #     Searching a three-level tree for a key that exists in the root returns
-    #     the root.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.search(10))
+    def test_search_three_root(self):
+        """
+        Searching a three-level tree for a key that exists in the root returns
+        the root.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.search(10))
 
-    # def test_search_three_outer_left(self):
-    #     """
-    #     Searching a three-level tree for a key that exists in the leftmost leaf
-    #     returns that leftmost leaf.
-    #     Hint: Be recursive.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst.left.left, bst.search(2))
+    def test_search_three_outer_left(self):
+        """
+        Searching a three-level tree for a key that exists in the leftmost leaf
+        returns that leftmost leaf.
+        Hint: Be recursive.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst.left.left, bst.search(2))
 
-    # def test_search_three_inner_left(self):
-    #     """
-    #     Searching a three-level tree for a key that exists in the inner left leaf
-    #     returns that inner left leaf.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst.left.right, bst.search(7))
+    def test_search_three_inner_left(self):
+        """
+        Searching a three-level tree for a key that exists in the inner left leaf
+        returns that inner left leaf.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst.left.right, bst.search(7))
 
-    # def test_search_three_inner_right(self):
-    #     """
-    #     Searching a three-level tree for a key that exists in the inner right leaf
-    #     returns that inner right leaf.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst.right.left, bst.search(12))
+    def test_search_three_inner_right(self):
+        """
+        Searching a three-level tree for a key that exists in the inner right leaf
+        returns that inner right leaf.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst.right.left, bst.search(12))
 
-    # def test_search_three_outer_right(self):
-    #     """
-    #     Searching a three-level tree for a key that exists in the rightmost leaf
-    #     returns that rightmost leaf.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst.right.right, bst.search(17))
+    def test_search_three_outer_right(self):
+        """
+        Searching a three-level tree for a key that exists in the rightmost leaf
+        returns that rightmost leaf.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst.right.right, bst.search(17))
 
     # """
     # Before proper deletions, let's add some convenience methods.
