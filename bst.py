@@ -48,7 +48,7 @@ class BinarySearchTree:
       return not (self.right is None)  
 
    def is_leaf(self): 
-      return not (self.has_left_child() and self.has_right_child())
+      return not (self.has_left_child() or self.has_right_child())
 
    def minimum(self): 
       if self.left == None: 
