@@ -587,77 +587,77 @@ class TestBinarySearchTree(unittest.TestCase):
         bst = BinarySearchTree(10)
         self.assertTrue(bst.is_leaf())
 
-    # def test_with_left_child_is_not_leaf(self):
-    #     """
-    #     A node with a left child is not a leaf node.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.left = BinarySearchTree(5)
-    #     self.assertFalse(bst.is_leaf())
+    def test_with_left_child_is_not_leaf(self):
+        """
+        A node with a left child is not a leaf node.
+        """
+        bst = BinarySearchTree(10)
+        bst.left = BinarySearchTree(5)
+        self.assertFalse(bst.is_leaf())
 
-    # def test_with_right_child_is_not_leaf(self):
-    #     """
-    #     A node with a right child is not a leaf node.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.right = BinarySearchTree(15)
-    #     self.assertFalse(bst.is_leaf())
+    def test_with_right_child_is_not_leaf(self):
+        """
+        A node with a right child is not a leaf node.
+        """
+        bst = BinarySearchTree(10)
+        bst.right = BinarySearchTree(15)
+        self.assertFalse(bst.is_leaf())
 
-    # def test_has_left_child(self):
-    #     """
-    #     A node with a left child returns True.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.left = BinarySearchTree(5)
-    #     self.assertTrue(bst.has_left_child())
+    def test_has_left_child(self):
+        """
+        A node with a left child returns True.
+        """
+        bst = BinarySearchTree(10)
+        bst.left = BinarySearchTree(5)
+        self.assertTrue(bst.has_left_child())
 
-    # def test_not_has_left_child(self):
-    #     """
-    #     A node without a left child returns False.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     self.assertFalse(bst.has_left_child())
+    def test_not_has_left_child(self):
+        """
+        A node without a left child returns False.
+        """
+        bst = BinarySearchTree(10)
+        self.assertFalse(bst.has_left_child())
 
-    # def test_has_right_child(self):
-    #     """
-    #     A node with a right child returns True.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.left = BinarySearchTree(15)
-    #     self.assertTrue(bst.has_left_child())
+    def test_has_right_child(self):
+        """
+        A node with a right child returns True.
+        """
+        bst = BinarySearchTree(10)
+        bst.left = BinarySearchTree(15)
+        self.assertTrue(bst.has_left_child())
 
-    # def test_not_has_right_child(self):
-    #     """
-    #     A node without a right child returns False.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     self.assertFalse(bst.has_right_child())
+    def test_not_has_right_child(self):
+        """
+        A node without a right child returns False.
+        """
+        bst = BinarySearchTree(10)
+        self.assertFalse(bst.has_right_child())
 
-    # def test_find_minimum_one(self):
-    #     """
-    #     A tree's 'minimum' node is the one with the smallest key.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     self.assertEqual(bst, bst.minimum())
+    def test_find_minimum_one(self):
+        """
+        A tree's 'minimum' node is the one with the smallest key.
+        """
+        bst = BinarySearchTree(10)
+        self.assertEqual(bst, bst.minimum())
 
-    # def test_find_minimum_two(self):
-    #     """
-    #     A tree's 'minimum' node is the one with the smallest key.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     left = BinarySearchTree(5)
-    #     right = BinarySearchTree(15)
-    #     bst.left = left
-    #     bst.right = right
-    #     self.assertEqual(left, bst.minimum())
+    def test_find_minimum_two(self):
+        """
+        A tree's 'minimum' node is the one with the smallest key.
+        """
+        bst = BinarySearchTree(10)
+        left = BinarySearchTree(5)
+        right = BinarySearchTree(15)
+        bst.left = left
+        bst.right = right
+        self.assertEqual(left, bst.minimum())
 
-    # def test_find_minimum_three(self):
-    #     """
-    #     A tree's 'minimum' node is the one with the smallest key.
-    #     Hint: The recipe is simple. And recursive.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst.left.left, bst.minimum())
+    def test_find_minimum_three(self):
+        """
+        A tree's 'minimum' node is the one with the smallest key.
+        Hint: The recipe is simple. And recursive.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst.left.left, bst.minimum())
 
     # If all of your tests are passing, try refactoring your implementation by
     # using those new convenience methods. One change at a time, keeping the
