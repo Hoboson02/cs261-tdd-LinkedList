@@ -79,6 +79,14 @@ class BinarySearchTree:
             new_root.left = self.left 
             return new_root
 
+   def keys(self, order):
+       keylist = []
+       if order == 'pre': 
+          keylist.append(self.key)
+          return keylist
+
+
+
       # if self.left != None and self.left.key == value: 
       #    self.left = self
       #    return self
