@@ -81,27 +81,27 @@ class BinarySearchTree:
 
    def keys(self, order):
       keylist = []
-      if order == 'pre': 
+      if order == 'pre' or 'in' or 'post': 
          keylist.append(self.key)
          if self.left != None: 
             self.left.keys(order)
          elif self.right != None: 
             self.right.keys(order)
          return keylist
-      elif order == 'in': 
-         keylist.append(self.key)
-         if self.left != None: 
-            self.left.keys(order)
-         elif self.right != None: 
-            self.right.keys(order)
-         return keylist
-      elif order == 'post': 
-         keylist.append(self.key)
-         if self.left != None: 
-            self.left.keys(order)
-         elif self.right != None: 
-            self.right.keys(order)
-         return keylist
+      # elif order == 'in': 
+      #    keylist.append(self.key)
+      #    if self.left != None: 
+      #       self.left.keys(order)
+      #    elif self.right != None: 
+      #       self.right.keys(order)
+      #    return keylist
+      # elif order == 'post': 
+      #    keylist.append(self.key)
+      #    if self.left != None: 
+      #       self.left.keys(order)
+      #    elif self.right != None: 
+      #       self.right.keys(order)
+      #    return keylist
 
 
 
