@@ -663,200 +663,200 @@ class TestBinarySearchTree(unittest.TestCase):
     # using those new convenience methods. One change at a time, keeping the
     # tests passing.
 
-    # def test_delete_three_nonexistent(self):
-    #     """
-    #     Deleting a node with a key that does not exist does not modify the tree
-    #     and returns the root node of a three-level tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    5      15
-    #      / \    /  \          / \    /  \
-    #     2   7  12   17       2   7  12   17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(-999))
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(7, bst.left.right.key)
-    #     self.assertEqual(12, bst.right.left.key)
-    #     self.assertEqual(17, bst.right.right.key)
+    def test_delete_three_nonexistent(self):
+        """
+        Deleting a node with a key that does not exist does not modify the tree
+        and returns the root node of a three-level tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    5      15
+         / \    /  \          / \    /  \
+        2   7  12   17       2   7  12   17
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(-999))
+        self.assertEqual(10, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(7, bst.left.right.key)
+        self.assertEqual(12, bst.right.left.key)
+        self.assertEqual(17, bst.right.right.key)
 
-    # def test_delete_three_leftmost_leaf(self):
-    #     """
-    #     Deleting the leftmost leaf of a three-level tree removes the leftmost leaf
-    #     and returns the root node of the three-level tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    5      15
-    #      / \    /  \            \    /  \
-    #     2   7  12   17           7  12   17
-    #     Hint: Consult the BST rules. Use paper. Draw pictures, hand-write code.
-    #           Be recursive.
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(2))
-    #     self.assertIsNone(bst.left.left)
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(7, bst.left.right.key)
-    #     self.assertEqual(12, bst.right.left.key)
-    #     self.assertEqual(17, bst.right.right.key)
+    def test_delete_three_leftmost_leaf(self):
+        """
+        Deleting the leftmost leaf of a three-level tree removes the leftmost leaf
+        and returns the root node of the three-level tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    5      15
+         / \    /  \            \    /  \
+        2   7  12   17           7  12   17
+        Hint: Consult the BST rules. Use paper. Draw pictures, hand-write code.
+              Be recursive.
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(2))
+        self.assertIsNone(bst.left.left)
+        self.assertEqual(10, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(7, bst.left.right.key)
+        self.assertEqual(12, bst.right.left.key)
+        self.assertEqual(17, bst.right.right.key)
 
-    # def test_delete_three_inner_left_leaf(self):
-    #     """
-    #     Deleting the 'inner left' leaf of a three-level tree removes the inner
-    #     left leaf and returns the root node of the three-level tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    5      15
-    #      / \    /  \          /      /  \
-    #     2   7  12   17       2      12   17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(7))
-    #     self.assertIsNone(bst.left.right)
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(12, bst.right.left.key)
-    #     self.assertEqual(17, bst.right.right.key)
+    def test_delete_three_inner_left_leaf(self):
+        """
+        Deleting the 'inner left' leaf of a three-level tree removes the inner
+        left leaf and returns the root node of the three-level tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    5      15
+         / \    /  \          /      /  \
+        2   7  12   17       2      12   17
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(7))
+        self.assertIsNone(bst.left.right)
+        self.assertEqual(10, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(12, bst.right.left.key)
+        self.assertEqual(17, bst.right.right.key)
 
-    # def test_delete_three_inner_right_leaf(self):
-    #     """
-    #     Deleting the 'inner right' leaf of a three-level tree removes the inner
-    #     right leaf and returns the root node of the three-level tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    5      15
-    #      / \    /  \          / \       \
-    #     2   7  12   17       2   7       17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(12))
-    #     self.assertIsNone(bst.right.left)
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(7, bst.left.right.key)
-    #     self.assertEqual(17, bst.right.right.key)
+    def test_delete_three_inner_right_leaf(self):
+        """
+        Deleting the 'inner right' leaf of a three-level tree removes the inner
+        right leaf and returns the root node of the three-level tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    5      15
+         / \    /  \          / \       \
+        2   7  12   17       2   7       17
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(12))
+        self.assertIsNone(bst.right.left)
+        self.assertEqual(10, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(7, bst.left.right.key)
+        self.assertEqual(17, bst.right.right.key)
 
-    # def test_delete_three_rightmost_leaf(self):
-    #     """
-    #     Deleting the rightmost leaf of a three-level tree removes the rightmost
-    #     leaf and returns the root node of the three-level tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    5      15
-    #      / \    /  \          / \    /
-    #     2   7  12   17       2   7  12
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(17))
-    #     self.assertIsNone(bst.right.right)
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(7, bst.left.right.key)
-    #     self.assertEqual(12, bst.right.left.key)
+    def test_delete_three_rightmost_leaf(self):
+        """
+        Deleting the rightmost leaf of a three-level tree removes the rightmost
+        leaf and returns the root node of the three-level tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    5      15
+         / \    /  \          / \    /
+        2   7  12   17       2   7  12
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(17))
+        self.assertIsNone(bst.right.right)
+        self.assertEqual(10, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(7, bst.left.right.key)
+        self.assertEqual(12, bst.right.left.key)
 
-    # def test_delete_three_left(self):
-    #     """
-    #     Deleting a node with two children causes the leaf with the smallest key
-    #     in the deleted node's right subtree to take its place; and, delete still
-    #     returns the root of the tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    7      15
-    #      / \    /  \          /      /  \
-    #     2   7  12   17       2      12   17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(5))
-    #     self.assertEqual(7, bst.left.key)
-    #     self.assertIsNone(bst.left.right)
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(12, bst.right.left.key)
-    #     self.assertEqual(17, bst.right.right.key)
+    def test_delete_three_left(self):
+        """
+        Deleting a node with two children causes the leaf with the smallest key
+        in the deleted node's right subtree to take its place; and, delete still
+        returns the root of the tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    7      15
+         / \    /  \          /      /  \
+        2   7  12   17       2      12   17
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(5))
+        self.assertEqual(7, bst.left.key)
+        self.assertIsNone(bst.left.right)
+        self.assertEqual(10, bst.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(12, bst.right.left.key)
+        self.assertEqual(17, bst.right.right.key)
 
-    # def test_delete_three_right(self):
-    #     """
-    #     Deleting a node with two children causes the leaf with the smallest key
-    #     in the deleted node's right subtree to take its place; and, delete still
-    #     returns the root of the tree.
-    #          10                   10
-    #        /    \               /    \
-    #       5      15      =>    5      17
-    #      / \    /  \          / \    /
-    #     2   7  12   17       2   7  12
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual(bst, bst.delete(15))
-    #     self.assertEqual(17, bst.right.key)
-    #     self.assertIsNone(bst.right.right)
-    #     self.assertEqual(10, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(7, bst.left.right.key)
-    #     self.assertEqual(12, bst.right.left.key)
+    def test_delete_three_right(self):
+        """
+        Deleting a node with two children causes the leaf with the smallest key
+        in the deleted node's right subtree to take its place; and, delete still
+        returns the root of the tree.
+             10                   10
+           /    \               /    \
+          5      15      =>    5      17
+         / \    /  \          / \    /
+        2   7  12   17       2   7  12
+        """
+        bst = three_level_tree()
+        self.assertEqual(bst, bst.delete(15))
+        self.assertEqual(17, bst.right.key)
+        self.assertIsNone(bst.right.right)
+        self.assertEqual(10, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(7, bst.left.right.key)
+        self.assertEqual(12, bst.right.left.key)
 
-    # def test_delete_three_root(self):
-    #     """
-    #     Deleting a node with two children causes the leaf with the smallest key
-    #     in the deleted node's right subtree to take its place; and, delete still
-    #     returns the root of the tree.
-    #          10                   12
-    #        /    \               /    \
-    #       5      15      =>    5      15
-    #      / \    /  \          / \       \
-    #     2   7  12   17       2   7       17
-    #     """
-    #     bst = three_level_tree()
-    #     bst = bst.delete(10)
-    #     self.assertEqual(12, bst.key)
-    #     self.assertEqual(5, bst.left.key)
-    #     self.assertEqual(15, bst.right.key)
-    #     self.assertEqual(2, bst.left.left.key)
-    #     self.assertEqual(7, bst.left.right.key)
-    #     self.assertIsNone(bst.right.left)
-    #     self.assertEqual(17, bst.right.right.key)
+    def test_delete_three_root(self):
+        """
+        Deleting a node with two children causes the leaf with the smallest key
+        in the deleted node's right subtree to take its place; and, delete still
+        returns the root of the tree.
+             10                   12
+           /    \               /    \
+          5      15      =>    5      15
+         / \    /  \          / \       \
+        2   7  12   17       2   7       17
+        """
+        bst = three_level_tree()
+        bst = bst.delete(10)
+        self.assertEqual(12, bst.key)
+        self.assertEqual(5, bst.left.key)
+        self.assertEqual(15, bst.right.key)
+        self.assertEqual(2, bst.left.left.key)
+        self.assertEqual(7, bst.left.right.key)
+        self.assertIsNone(bst.right.left)
+        self.assertEqual(17, bst.right.right.key)
 
     # """
     # Mature, N-level trees.
     # """
 
-    # def test_insertions(self):
-    #     """
-    #          10                   10                      10
-    #        /    \               /    \                  /    \
-    #       5      15      =>    5      15         =>    5      15
-    #      / \    /  \          / \    /  \             / \    /  \
-    #     2   7  12   17       2   7  12   17          2   7  12   30
-    #                                     /  \                    /  \
-    #                                    16  45                 16   45
-    #                                       /  \                       \
-    #                                      30   99                     99
-    #     """
-    #     bst = three_level_tree()
-    #     bst.insert(BinarySearchTree(45))
-    #     bst.insert(BinarySearchTree(16))
-    #     bst.insert(BinarySearchTree(30))
-    #     bst.insert(BinarySearchTree(99))
-    #     self.assertEqual(45, bst.right.right.right.key)
-    #     self.assertEqual(99, bst.right.right.right.right.key)
-    #     bst.delete(17)
-    #     self.assertEqual(30, bst.right.right.key)
-    #     self.assertEqual(16, bst.right.right.left.key)
-    #     self.assertEqual(45, bst.right.right.right.key)
-    #     self.assertEqual(99, bst.right.right.right.right.key)
-    #     self.assertIsNone(bst.right.right.right.left)
+    def test_insertions(self):
+        """
+             10                   10                      10
+           /    \               /    \                  /    \
+          5      15      =>    5      15         =>    5      15
+         / \    /  \          / \    /  \             / \    /  \
+        2   7  12   17       2   7  12   17          2   7  12   30
+                                        /  \                    /  \
+                                       16  45                 16   45
+                                          /  \                       \
+                                         30   99                     99
+        """
+        bst = three_level_tree()
+        bst.insert(BinarySearchTree(45))
+        bst.insert(BinarySearchTree(16))
+        bst.insert(BinarySearchTree(30))
+        bst.insert(BinarySearchTree(99))
+        self.assertEqual(45, bst.right.right.right.key)
+        self.assertEqual(99, bst.right.right.right.right.key)
+        bst.delete(17)
+        self.assertEqual(30, bst.right.right.key)
+        self.assertEqual(16, bst.right.right.left.key)
+        self.assertEqual(45, bst.right.right.right.key)
+        self.assertEqual(99, bst.right.right.right.right.key)
+        self.assertIsNone(bst.right.right.right.left)
 
     # """
     # Traversals
